@@ -17,11 +17,9 @@ RewriteRule ^ - [L]
 RewriteRule ^ index.php [QSA,L]
 
 <IfModule mod_headers.c>
-  Header always unset Access-Control-Allow-Origin
   Header always unset Access-Control-Allow-Headers
   Header always unset Access-Control-Allow-Methods
   Header always unset Access-Control-Max-Age
-  Header always set Access-Control-Allow-Origin "https://thrivel-frontend.vercel.app"
   Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Admin-Key, Accept, Origin"
   Header always set Access-Control-Allow-Methods "GET, POST, PUT, PATCH, DELETE, OPTIONS"
   Header always set Access-Control-Max-Age "86400"

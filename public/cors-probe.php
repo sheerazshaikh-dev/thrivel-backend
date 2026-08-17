@@ -2,9 +2,12 @@
 declare(strict_types=1);
 
 $origin = rtrim(trim((string)($_SERVER['HTTP_ORIGIN'] ?? '')), '/');
-$allowed = 'https://thrivel-frontend.vercel.app';
+$allowed = [
+    'https://staging.thrivelid.com',
+    'https://thrivel-frontend.vercel.app',
+];
 
-if ($origin === $allowed || preg_match('#^https?://(?:localhost|127\.0\.0\.1)(?::\d+)?$#i', $origin)) {
+if (in_array($origin, $allowed, true) || preg_match('#^https?://(?:localhost|127\.0\.0\.1)(?::\d+)?$#i', $origin)) {
     header("Access-Control-Allow-Origin: {$origin}");
     header('Vary: Origin');
 }
@@ -22,7 +25,7 @@ header('Content-Type: application/json; charset=utf-8');
 echo json_encode([
     'ok' => true,
     'requestOrigin' => $origin,
-    'originAllowed' => $origin === $allowed,
+    'originAllowed' => in_array($origin, $allowed, true),
     'documentRoot' => $_SERVER['DOCUMENT_ROOT'] ?? null,
     'scriptName' => $_SERVER['SCRIPT_NAME'] ?? null,
 ], JSON_UNESCAPED_SLASHES);
