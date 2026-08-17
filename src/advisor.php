@@ -335,7 +335,7 @@ function openai_provider_message(int $status, string $code, string $message, int
 function openai_response_request(array $payload, int $timeout = 60): array {
     $key = openai_api_key();
     if ($key === '') throw new OpenAIProviderException('OPENAI_API_KEY is not configured on the PHP backend.');
-    if (!function_exists('curl_init')) throw new OpenAIProviderException('PHP cURL is not enabled on this server. Enable the cURL extension for the PHP version used by thrivel-iq.brandandbrains.com.');
+    if (!function_exists('curl_init')) throw new OpenAIProviderException('PHP cURL is not enabled on this server. Enable the cURL extension for the PHP version used by backend.thrivelid.com.');
 
     $lastMessage = 'OpenAI request failed.';
     $lastStatus = 0;
@@ -626,3 +626,4 @@ function advisor_generate_reply(int $userId, string $message): array {
         'safetyClass' => $safetyClass,
     ];
 }
+
