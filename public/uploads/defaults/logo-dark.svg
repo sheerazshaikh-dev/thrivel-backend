@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="150" viewBox="0 0 620 150" role="img" aria-labelledby="t d">
+<title id="t">Thrivel IQ</title><desc id="d">Thrivel IQ gradient mark and white wordmark</desc>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7AC7C8"/><stop offset=".34" stop-color="#9971B1"/><stop offset=".68" stop-color="#EC437D"/><stop offset="1" stop-color="#F4946E"/></linearGradient></defs>
+<rect width="620" height="150" rx="28" fill="none"/>
+<g transform="translate(18 15)"><circle cx="60" cy="60" r="52" fill="url(#g)"/><path d="M36 72c10-27 29-43 55-50-7 30-23 50-49 60 22 3 39 12 51 29-29-2-49-15-59-39z" fill="#fff" fill-opacity=".92"/></g>
+<text x="145" y="89" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700" letter-spacing="-2" fill="#fff">Thrivel IQ</text>
+</svg>

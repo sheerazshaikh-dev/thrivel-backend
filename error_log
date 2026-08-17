@@ -1,0 +1,74 @@
+[05-Aug-2026 21:50:38 UTC] PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'brandand_thrivel-backend.site_settings' doesn't exist in /home/brandand/thrivel-iq.brandandbrains.com/public/index.php:31
+Stack trace:
+#0 /home/brandand/thrivel-iq.brandandbrains.com/public/index.php(31): PDO->query('SELECT * FROM s...')
+#1 /home/brandand/thrivel-iq.brandandbrains.com/index.php(6): require('/home/brandand/...')
+#2 {main}
+[05-Aug-2026 21:51:04 UTC] PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'brandand_thrivel-backend.site_settings' doesn't exist in /home/brandand/thrivel-iq.brandandbrains.com/public/index.php:31
+Stack trace:
+#0 /home/brandand/thrivel-iq.brandandbrains.com/public/index.php(31): PDO->query('SELECT * FROM s...')
+#1 /home/brandand/thrivel-iq.brandandbrains.com/index.php(6): require('/home/brandand/...')
+#2 {main}
+[06-Aug-2026 20:02:33 UTC] [Thrivel IQ a9c813e4] PDOException: SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'api_token_expires_at' in /home/brandand/thrivel-iq.brandandbrains.com/src/bootstrap.php:58
+Stack trace:
+#0 /home/brandand/thrivel-iq.brandandbrains.com/src/bootstrap.php(58): PDO->exec('ALTER TABLE `us...')
+#1 /home/brandand/thrivel-iq.brandandbrains.com/src/bootstrap.php(303): database_add_column_if_missing('users', 'api_token_expir...', 'DATETIME NULL')
+#2 /home/brandand/thrivel-iq.brandandbrains.com/public/index.php(130): ensure_runtime_schema()
+#3 /home/brandand/thrivel-iq.brandandbrains.com/index.php(6): require('/home/brandand/...')
+#4 {main}
+[10-Aug-2026 15:37:19 UTC] [Thrivel IQ 5f91d7dd] PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2026-08-10-origin-styled-catalog-v1' for key 'PRIMARY' in /home/brandand/thrivel-iq.brandandbrains.com/src/bootstrap.php:448
+Stack trace:
+#0 /home/brandand/thrivel-iq.brandandbrains.com/src/bootstrap.php(448): PDOStatement->execute(Array)
+#1 /home/brandand/thrivel-iq.brandandbrains.com/public/index.php(231): ensure_runtime_schema()
+#2 /home/brandand/thrivel-iq.brandandbrains.com/index.php(6): require('/home/brandand/...')
+#3 {main}
+[12-Aug-2026 15:04:08 UTC] [Thrivel IQ e8083527] RuntimeException: You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/. in /home/brandand/thrivel-iq.brandandbrains.com/src/advisor.php:300
+Stack trace:
+#0 /home/brandand/thrivel-iq.brandandbrains.com/src/advisor.php(323): openai_response_request(Array, 30)
+#1 /home/brandand/thrivel-iq.brandandbrains.com/src/advisor.php(399): advisor_classify_message('How should I us...')
+#2 /home/brandand/thrivel-iq.brandandbrains.com/public/index.php(1022): advisor_generate_reply(2, 'How should I us...')
+#3 /home/brandand/thrivel-iq.brandandbrains.com/index.php(6): require('/home/brandand/...')
+#4 {main}
+[12-Aug-2026 15:04:25 UTC] [Thrivel IQ 9007df90] RuntimeException: You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/. in /home/brandand/thrivel-iq.brandandbrains.com/src/advisor.php:300
+Stack trace:
+#0 /home/brandand/thrivel-iq.brandandbrains.com/src/advisor.php(323): openai_response_request(Array, 30)
+#1 /home/brandand/thrivel-iq.brandandbrains.com/src/advisor.php(399): advisor_classify_message('How should I us...')
+#2 /home/brandand/thrivel-iq.brandandbrains.com/public/index.php(1022): advisor_generate_reply(2, 'How should I us...')
+#3 /home/brandand/thrivel-iq.brandandbrains.com/index.php(6): require('/home/brandand/...')
+#4 {main}
+[12-Aug-2026 15:19:15 UTC] [Thrivel IQ advisor classifier fallback] OpenAI is rate-limiting this API project. Try again shortly.
+[12-Aug-2026 15:19:19 UTC] [Thrivel IQ 62c71538] OpenAIProviderException: OpenAI is rate-limiting this API project. Try again shortly. in /home/brandand/thrivel-iq.brandandbrains.com/src/advisor.php:336
+Stack trace:
+#0 /home/brandand/thrivel-iq.brandandbrains.com/src/advisor.php(521): openai_response_request(Array, 75)
+#1 /home/brandand/thrivel-iq.brandandbrains.com/public/index.php(1054): advisor_generate_reply(2, 'What should I d...')
+#2 /home/brandand/thrivel-iq.brandandbrains.com/index.php(6): require('/home/brandand/...')
+#3 {main}
+[14-Aug-2026 19:20:08 UTC] [Thrivel IQ 3936b22e] PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.pending_paid_conversion' in 'SET' in /home/brandand/thrivel-iq.brandandbrains.com/src/bootstrap.php:642
+Stack trace:
+#0 /home/brandand/thrivel-iq.brandandbrains.com/src/bootstrap.php(642): PDO->exec('UPDATE advisor_...')
+#1 /home/brandand/thrivel-iq.brandandbrains.com/public/index.php(476): ensure_runtime_schema()
+#2 /home/brandand/thrivel-iq.brandandbrains.com/index.php(6): require('/home/brandand/...')
+#3 {main}
+[14-Aug-2026 19:20:16 UTC] [Thrivel IQ 03ed3601] PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.pending_paid_conversion' in 'SET' in /home/brandand/thrivel-iq.brandandbrains.com/src/bootstrap.php:642
+Stack trace:
+#0 /home/brandand/thrivel-iq.brandandbrains.com/src/bootstrap.php(642): PDO->exec('UPDATE advisor_...')
+#1 /home/brandand/thrivel-iq.brandandbrains.com/public/index.php(476): ensure_runtime_schema()
+#2 /home/brandand/thrivel-iq.brandandbrains.com/index.php(6): require('/home/brandand/...')
+#3 {main}
+[14-Aug-2026 19:20:17 UTC] [Thrivel IQ 384cc193] PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.pending_paid_conversion' in 'SET' in /home/brandand/thrivel-iq.brandandbrains.com/src/bootstrap.php:642
+Stack trace:
+#0 /home/brandand/thrivel-iq.brandandbrains.com/src/bootstrap.php(642): PDO->exec('UPDATE advisor_...')
+#1 /home/brandand/thrivel-iq.brandandbrains.com/public/index.php(476): ensure_runtime_schema()
+#2 /home/brandand/thrivel-iq.brandandbrains.com/index.php(6): require('/home/brandand/...')
+#3 {main}
+[14-Aug-2026 19:20:50 UTC] [Thrivel IQ 2394c1a6] PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.pending_paid_conversion' in 'SET' in /home/brandand/thrivel-iq.brandandbrains.com/src/bootstrap.php:642
+Stack trace:
+#0 /home/brandand/thrivel-iq.brandandbrains.com/src/bootstrap.php(642): PDO->exec('UPDATE advisor_...')
+#1 /home/brandand/thrivel-iq.brandandbrains.com/public/index.php(476): ensure_runtime_schema()
+#2 /home/brandand/thrivel-iq.brandandbrains.com/index.php(6): require('/home/brandand/...')
+#3 {main}
+[14-Aug-2026 19:23:05 UTC] [Thrivel IQ ee3e4ba8] PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'a.pending_paid_conversion' in 'SET' in /home/brandand/thrivel-iq.brandandbrains.com/src/bootstrap.php:642
+Stack trace:
+#0 /home/brandand/thrivel-iq.brandandbrains.com/src/bootstrap.php(642): PDO->exec('UPDATE advisor_...')
+#1 /home/brandand/thrivel-iq.brandandbrains.com/public/index.php(476): ensure_runtime_schema()
+#2 /home/brandand/thrivel-iq.brandandbrains.com/index.php(6): require('/home/brandand/...')
+#3 {main}

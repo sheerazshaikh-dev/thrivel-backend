@@ -1,0 +1,7 @@
+# Defense in depth: body-profile photos must never be served directly.
+<IfModule mod_authz_core.c>
+  Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+  Deny from all
+</IfModule>

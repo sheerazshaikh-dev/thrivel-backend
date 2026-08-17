@@ -1,0 +1,30 @@
+DirectoryIndex index.php
+Options -Indexes
+RewriteEngine On
+
+# Preserve custom authorization headers under cPanel Apache/LiteSpeed/FastCGI.
+SetEnvIf Authorization "(.+)" HTTP_AUTHORIZATION=$1
+SetEnvIf X-Admin-Key "(.+)" HTTP_X_ADMIN_KEY=$1
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},E=HTTP_X_ADMIN_KEY:%{HTTP:X-Admin-Key}]
+
+# This compatibility layer makes the API work even if the cPanel subdomain points
+# to /backend instead of /backend/public. Sensitive backend files stay blocked.
+RewriteRule ^(?:\.env|src|database)(?:/|$) - [F,L,NC]
+RewriteRule ^uploads/(.*)$ public/uploads/$1 [L,NC]
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+RewriteRule ^ index.php [QSA,L]
+
+<IfModule mod_headers.c>
+  Header always unset Access-Control-Allow-Origin
+  Header always unset Access-Control-Allow-Headers
+  Header always unset Access-Control-Allow-Methods
+  Header always unset Access-Control-Max-Age
+  Header always set Access-Control-Allow-Origin "https://thrivel-frontend.vercel.app"
+  Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Admin-Key, Accept, Origin"
+  Header always set Access-Control-Allow-Methods "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+  Header always set Access-Control-Max-Age "86400"
+  Header always merge Vary "Origin"
+  Header always set X-Content-Type-Options "nosniff"
+</IfModule>

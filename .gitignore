@@ -1,0 +1,9 @@
+.env
+config.php
+logs/
+
+# Runtime uploads (keep bundled defaults and security rules)
+public/uploads/*/*
+!public/uploads/defaults/
+!public/uploads/defaults/**
+!public/uploads/.htaccess

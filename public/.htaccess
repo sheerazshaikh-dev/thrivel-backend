@@ -1,0 +1,30 @@
+DirectoryIndex index.php
+RewriteEngine On
+
+# Preserve custom authorization headers under cPanel Apache/LiteSpeed/FastCGI.
+SetEnvIf Authorization "(.+)" HTTP_AUTHORIZATION=$1
+SetEnvIf X-Admin-Key "(.+)" HTTP_X_ADMIN_KEY=$1
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},E=HTTP_X_ADMIN_KEY:%{HTTP:X-Admin-Key}]
+
+# Route every API path and every OPTIONS preflight through the PHP front controller.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+<IfModule mod_headers.c>
+  # Production fallback. PHP also resolves FRONTEND_ORIGIN dynamically, but these
+  # headers keep CORS present on Apache/LiteSpeed error and preflight responses.
+  Header always unset Access-Control-Allow-Origin
+  Header always unset Access-Control-Allow-Headers
+  Header always unset Access-Control-Allow-Methods
+  Header always unset Access-Control-Max-Age
+  Header always set Access-Control-Allow-Origin "https://thrivel-frontend.vercel.app"
+  Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Admin-Key, Accept, Origin"
+  Header always set Access-Control-Allow-Methods "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+  Header always set Access-Control-Max-Age "86400"
+  Header always merge Vary "Origin"
+
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
