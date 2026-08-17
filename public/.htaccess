@@ -12,13 +12,11 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.php [QSA,L]
 
 <IfModule mod_headers.c>
-  # Production fallback. PHP also resolves FRONTEND_ORIGIN dynamically, but these
-  # headers keep CORS present on Apache/LiteSpeed error and preflight responses.
-  Header always unset Access-Control-Allow-Origin
+  # PHP resolves Access-Control-Allow-Origin dynamically from FRONTEND_ORIGIN.
+  # Do not set a fixed origin here: doing so breaks custom domains such as staging.thrivelid.com.
   Header always unset Access-Control-Allow-Headers
   Header always unset Access-Control-Allow-Methods
   Header always unset Access-Control-Max-Age
-  Header always set Access-Control-Allow-Origin "https://thrivel-frontend.vercel.app"
   Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Admin-Key, Accept, Origin"
   Header always set Access-Control-Allow-Methods "GET, POST, PUT, PATCH, DELETE, OPTIONS"
   Header always set Access-Control-Max-Age "86400"

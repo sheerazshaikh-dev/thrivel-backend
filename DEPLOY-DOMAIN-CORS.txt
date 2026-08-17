@@ -1,0 +1,24 @@
+THRIVEL ID BACKEND - DOMAIN/CORS UPDATE
+
+Backend URL:
+https://backend.thrivelid.com
+
+Allowed frontend origins:
+https://staging.thrivelid.com
+https://thrivel-frontend.vercel.app
+
+Deployment:
+1. Back up the current server .env.
+2. Upload/extract this package to /home/brandand/backend.thrivelid.com
+3. Keep the domain document root pointed to:
+   /home/brandand/backend.thrivelid.com/public
+4. This package includes the supplied .env with APP_URL and FRONTEND_ORIGIN updated.
+5. Verify:
+   https://backend.thrivelid.com/health
+   https://backend.thrivelid.com/auth/admin-setup/status
+6. Hard refresh https://staging.thrivelid.com and confirm CORS errors are gone.
+
+Important:
+- public/.htaccess no longer forces one fixed Access-Control-Allow-Origin.
+- PHP now returns the matching allowed origin dynamically.
+- Existing secrets/database credentials from the supplied .env were preserved.

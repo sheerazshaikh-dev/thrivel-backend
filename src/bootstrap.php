@@ -676,6 +676,7 @@ function normalize_origin(string $origin): string { return rtrim(trim($origin), 
 
 function cors_allowed_origins(): array {
     $configured = explode(',', (string)(env_value('FRONTEND_ORIGIN', '') ?? ''));
+    $configured[] = 'https://staging.thrivelid.com';
     $configured[] = 'https://thrivel-frontend.vercel.app';
     $allowed = [];
     foreach ($configured as $origin) {
